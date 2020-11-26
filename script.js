@@ -1,5 +1,5 @@
 // Write your JavaScript code here!
-import { validData, readyForLaunch, selectDestination, hideMission } from './validation.js';
+import { validData, readyForLaunch, selectDestination, hideMission, awaitLaunchStatus } from './validation.js';
 
 window.addEventListener("load", function() {
    let form = document.querySelector("form");
@@ -7,6 +7,7 @@ window.addEventListener("load", function() {
       
       if (!validData()) {
          event.preventDefault();
+         awaitLaunchStatus();
       } else {
          if (!readyForLaunch()) {
             event.preventDefault();

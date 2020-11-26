@@ -133,3 +133,14 @@ export function hideMission () {
    let missionTarget = document.getElementById("missionTarget");
    missionTarget.innerHTML = "";
 };
+
+export function awaitLaunchStatus() {
+
+   let launchStatus = document.getElementById("launchStatus");
+   let faultyItems = document.getElementById("faultyItems");
+
+   launchStatus.innerHTML = "Awaiting Information Before Launch";
+   launchStatus.style.color = "black";
+   faultyItems.style.visibility = "hidden";
+
+};
