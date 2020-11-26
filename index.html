@@ -3,7 +3,7 @@
     <head>
         <title>Launch Checklist</title>
         <link rel = "stylesheet" type = "text/css" href = "styles.css" />
-        <script src = "script.js"></script>
+        <script type= "module" src = "script.js"></script>
     </head>
     <body>
         <h1>Launch Checklist Form</h1>
@@ -11,20 +11,27 @@
             <!-- Fetch some planetary data -->
         </div> 
         <div id="launchForm">
-            <form>
+            <!-- Question: Is there any other alternative to prevent a form from clearing fields on submit? -->
+            <!-- Question: Why do we need to use JS validation instead of HTML validation? -->
+            <form onsubmit="return false">
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
                     <label>Pilot Name <input type="text" name="pilotName" id="pilotName"/></label>
+                    <!-- <label>Pilot Name <input type="text" name="pilotName" id="pilotName" required/></label> -->
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Co-pilot Name <input type="text" name="copilotName"/></label>
+                    <label>Co-pilot Name <input type="text" name="copilotName" id="copilotName"/></label>
+                    <!-- <label>Co-pilot Name <input type="text" name="copilotName" required/></label> -->
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Fuel Level (L) <input type="text" name="fuelLevel"/></label> 
+                    <label>Fuel Level (L) <input type="text" name="fuelLevel" id="fuelLevel"/></label> 
+                    <!-- <label>Fuel Level (L) <input type="number" name="fuelLevel" required/></label>  -->
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Cargo Mass (kg) <input type="text" name="cargoMass"/></label>
+                    <label>Cargo Mass (kg) <input type="text" name="cargoMass" id="cargoMass"/></label>
+                    <!-- <label>Cargo Mass (kg) <input type="number" name="cargoMass" required/></label> -->
                 </div>
                 <button id="formSubmit">Submit</button>
+               
             </form>
         </div>
         <div id="launchStatusCheck">
