@@ -4,7 +4,7 @@ let pilotName = document.getElementById("pilotName");
 let copilotName = document.getElementById("copilotName");
 let fuelLevel = document.getElementById("fuelLevel");
 let cargoMass = document.getElementById("cargoMass");
-   
+
    let fields = {
       pilotName: pilotName.value,
       copilotName: copilotName.value, 
@@ -13,19 +13,20 @@ let cargoMass = document.getElementById("cargoMass");
    };
 
    for (let field in fields) {
-
+      
       if (fields[field] === "") {
          alert("All fields are required!");
-         break;
          return false;
 
       } if (field === "pilotName" || field === "copilotName") {
+         
          if (!isNaN(fields[field])) {
             alert("Pilot and Co-pilot Name must be alphabetical values.");  
             return false;
          }
 
       } if (field === "fuelLevel" || field === "cargoMass") {
+         
          if (isNaN(fields[field])) {
             alert("Fuel Level and Cargo Mass must be numeric values.");  
             return false;
@@ -77,15 +78,13 @@ export function readyForLaunch() {
    let fuelStatus = document.getElementById("fuelStatus");
    let cargoStatus = document.getElementById("cargoStatus");
    
-   /* Question: Is it possible to reset certain values of the HTML elements after each submit?
-   To avoid including default values of fuelStatus and cargoStatus. */
    pilotStatus.innerHTML = `Pilot ${pilotName.value} Ready`;
    copilotStatus.innerHTML = `Co-pilot ${copilotName.value} Ready`;
 
    faultyItems.style.visibility = "visible";
    fuelStatus.innerHTML = "Fuel level high enough for launch";
    cargoStatus.innerHTML = "Cargo mass low enough for launch";
-   
+      
    if (fuelLevel.value > 10000 && cargoMass.value > 0 && cargoMass.value < 10000){
       launchStatus.innerHTML = "Shuttle is ready for launch";
       launchStatus.style.color = "green";
@@ -93,6 +92,7 @@ export function readyForLaunch() {
       return true;
 
    } else if (fuelLevel.value <= 10000 || cargoMass.value >= 10000){
+      
       launchStatus.innerHTML = "Shuttle not ready for launch";
       launchStatus.style.color = "#f54242";   
       if (fuelLevel.value <= 10000 ){
@@ -110,7 +110,7 @@ export function selectDestination () {
    fetch("https://handlers.education.launchcode.org/static/planets.json")
    .then( function(response) {
       response.json().then( function(json) {
-         console.log(json);
+         // console.log(json);
          const randomIndex = Math.floor(Math.random() * json.length);
          const missionTarget = document.getElementById("missionTarget");
 

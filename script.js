@@ -6,11 +6,11 @@ window.addEventListener("load", function() {
    form.addEventListener("submit", function(event) {
       
       if (!validData()) {
-         event.preventDefault();
+         // event.preventDefault();
          awaitLaunchStatus();
       } else {
          if (!readyForLaunch()) {
-            event.preventDefault();
+            // event.preventDefault();
             hideMission();
          } else {
             selectDestination();
